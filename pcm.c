@@ -1038,7 +1038,7 @@ int pcm_prepare(struct pcm *pcm)
     if (ioctl(pcm->fd, SNDRV_PCM_IOCTL_PREPARE) < 0)
         return oops(pcm, errno, "cannot prepare channel");
 
-    pcm_sync_ptr(pcm, 0);
+    pcm_sync_ptr(pcm, SNDRV_PCM_SYNC_PTR_APPL);
 
     pcm->prepared = 1;
     return 0;
